@@ -13,6 +13,7 @@
 - Dependencies
 - Über-jar pattern
 
+
 ## 3. IDEA Overview (0.5)
 - Building
 - Debugging
