@@ -9,5 +9,6 @@ public class PrinterApp {
     public static void main(String... args) {
         logger.debug("Entering main method with args {}", args);
         System.out.println( "Hello World!" );
+        System.out.println( "Hello World!" );
     }
 }
