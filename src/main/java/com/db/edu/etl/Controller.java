@@ -8,6 +8,7 @@ public class Controller {
             }
             case EIS2_DATA_FILE: {
                 return rawDataRecord.split(";");
+                
             }
             default: return null;
         }
