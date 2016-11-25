@@ -11,24 +11,36 @@ public class Controller {
     public static String[] transform(RecordType recordType, String[] rawDataRecord) {
         String[] transformed = null;
 
-        for (String record : rawDataRecord) {
-
-            switch (recordType) {
-                case EIS1_DATA_FILE: {
-                    // Logger.debug("Parsing EIS1_DATA_FILE");
-                    return null;
-                }
-                case EIS2_DATA_FILE: {
-                    //  Logger.debug("Parsing EIS2_DATA_FILE");
-                    //transformed = record.split(",");
-                    return null;
-                }
-                default:
-                    return null;
-            }
-
+        if (rawDataRecord == null) {
+            Logger.debug("Empty rawDataRecord");
+            return null;
         }
-                return transformed;
+        else {
+
+            for (String record : rawDataRecord) {
+
+                if ((record == null) || (record == "")) {
+                    continue;
+
+                }
+
+                switch (recordType) {
+                    case EIS1_DATA_FILE: {
+                        Logger.debug("Parsing EIS1_DATA_FILE");
+                        return null;
+                    }
+                    case EIS2_DATA_FILE: {
+                        //Logger.debug("Parsing EIS2_DATA_FILE");
+                        //transformed = record.split(",");
+                        return null;
+                    }
+                    default:
+                        return null;
+                }
+
+            }
+            return transformed;
+        }
     }
 
     public static String[] extract(RecordType recordType) {
