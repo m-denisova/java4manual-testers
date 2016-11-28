@@ -2,6 +2,7 @@ package com.db.edu.etl;
 import com.db.edu.EtlApp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import static java.lang.Math.round;
 
 
 public class Controller {
@@ -21,7 +22,6 @@ public class Controller {
 
                 if ((record == null) || (record == "")) {
                     continue;
-
                 }
 
                 switch (recordType) {
@@ -37,11 +37,26 @@ public class Controller {
                     default:
                         return null;
                 }
-
             }
             return transformed;
         }
     }
+
+   public static int[] transform(RecordType recordType, int[] rawDataRecord) {
+       int sum = 0;
+       float averageSalary = 0;
+
+       if (rawDataRecord.length > 0) {
+           for ( int counter =0 ; counter < rawDataRecord.length; counter++) {
+               sum += rawDataRecord[counter];
+           }
+           averageSalary = (float) sum / rawDataRecord.length;
+           Logger.info("Average Salary is " + String.format("%6.2f", averageSalary) );
+       } else {
+           Logger.info("rawDataRecord with 0 lenght");
+       }
+       return rawDataRecord;
+   }
 
     public static String[] extract(RecordType recordType) {
         Logger.debug("Start extract");
