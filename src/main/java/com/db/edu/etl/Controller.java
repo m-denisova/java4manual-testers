@@ -53,7 +53,7 @@ public class Controller {
            averageSalary = (float) sum / rawDataRecord.length;
            Logger.info("Average Salary is " + String.format("%6.2f", averageSalary) );
        } else {
-           Logger.info("rawDataRecord with 0 lenght");
+           Logger.info("rawDataRecord is null or has 0 lenght");
        }
        return rawDataRecord;
    }
