@@ -46,7 +46,7 @@ public class Controller {
        int sum = 0;
        float averageSalary = 0;
 
-       if (rawDataRecord.length > 0) {
+       if ((rawDataRecord != null) && (rawDataRecord.length > 0)) {
            for ( int counter =0 ; counter < rawDataRecord.length; counter++) {
                sum += rawDataRecord[counter];
            }
