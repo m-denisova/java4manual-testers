@@ -20,13 +20,9 @@ public class ControllerTest {
            rawDataRecord = null;
            //enregion
 
-           //region When
-           Controller sut = new Controller();
-           //regionend
-
            //region Then
            // if (size !=
-           assertEquals(rawDataRecord, sut.transform(recordType, rawDataRecord));
+           assertEquals(rawDataRecord, Controller.transform(recordType, rawDataRecord));
            //regionadd
     }
 
@@ -37,13 +33,9 @@ public class ControllerTest {
         rawDataRecord = new int[] {};
         //enregion
 
-        //region When
-        Controller sut = new Controller();
-        //regionend
-
         //region Then
         // if (size !=
-        assertEquals(rawDataRecord, sut.transform(recordType, rawDataRecord));
+        assertEquals(rawDataRecord, Controller.transform(recordType, rawDataRecord));
         //regionadd
      }
 
@@ -56,13 +48,9 @@ public class ControllerTest {
         rawDataRecord = new int[] {1,1};
         //enregion
 
-        //region When
-        Controller sut = new Controller();
-        //regionend
-
         //region Then
         // if (size !=
-        assertEquals(rawDataRecord, sut.transform(recordType, rawDataRecord));
+        assertEquals(rawDataRecord, Controller.transform(recordType, rawDataRecord));
         //regionadd
     }
 }
