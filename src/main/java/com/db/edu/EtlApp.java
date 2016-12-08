@@ -13,7 +13,7 @@ public class EtlApp {
         logger.debug("Entering main method with args {}", args);
 
         Controller.transform(RecordType.EIS1_DATA_FILE,
-                new int[] {1,2});
+                new String[] {"10","20"});
 
      //   Controller.load(
       //          Controller.transform(RecordType.EIS1_DATA_FILE,

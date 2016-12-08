@@ -9,7 +9,7 @@ public class Controller {
 
     private static final Logger Logger = LoggerFactory.getLogger(Controller.class);
 
-    public static String[] transform(RecordType recordType, String[] rawDataRecord) {
+    public static String[] transform_old(RecordType recordType, String[] rawDataRecord) {
         String[] transformed = null;
 
         if (rawDataRecord == null) {
@@ -42,7 +42,7 @@ public class Controller {
         }
     }
 
-   public static int[] transform(RecordType recordType, int[] rawDataRecord) {
+    public static int[] transform(RecordType recordType, int[] rawDataRecord) {
        int sum = 0;
        float averageSalary = 0;
 
@@ -58,7 +58,30 @@ public class Controller {
        return rawDataRecord;
    }
 
-    public static String[] extract(RecordType recordType) {
+    public static DTO transform(RecordType recordType, String[] rawDataRecord) {
+        int sum = 0;
+        int counter = 0;
+        double average = 0.;
+        int[] transformationResults = null;
+
+        if ((rawDataRecord == null) || (rawDataRecord.length == 0)) {
+            Logger.debug("Empty or null rawDataRecord");
+        } else {
+            transformationResults = new int [rawDataRecord.length];
+            for (counter = 0; counter < rawDataRecord.length; counter++) {
+                transformationResults[counter] = Integer.parseInt(rawDataRecord[counter]);
+                sum += transformationResults[counter];
+            }
+            average = (double) sum / rawDataRecord.length;
+        }
+
+        return new DTO(
+            transformationResults,
+                       average
+                      );
+    }
+
+        public static String[] extract(RecordType recordType) {
         Logger.debug("Start extract");
 
         Logger.debug("End extract");

@@ -11,9 +11,9 @@ import java.util.ArrayList;
 //TODO Refactor to OOP testable design.
 public class ControllerTest {
     private RecordType recordType;
-    private int[] rawDataRecord;
+    private String[] rawDataRecord;
 
-       @Test
+    @Test
     public void shouldTransformWhenNull() {
            //region Given
            recordType = RecordType.EIS1_DATA_FILE;
@@ -27,25 +27,10 @@ public class ControllerTest {
     }
 
     @Test
-    public void shouldTransformWhenEmpty() {
-        //region Given
-        recordType = RecordType.EIS1_DATA_FILE;
-        rawDataRecord = new int[] {};
-        //enregion
-
-        //region Then
-        // if (size !=
-        assertEquals(rawDataRecord, Controller.transform(recordType, rawDataRecord));
-        //regionadd
-     }
-
-    @Before
-
-    @Test
     public void shouldTransformWhenData() {
         //region Given
         recordType = RecordType.EIS1_DATA_FILE;
-        rawDataRecord = new int[] {1,1};
+        int[] rawDataRecord = {1,1};
         //enregion
 
         //region Then
