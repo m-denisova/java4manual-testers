@@ -1,14 +1,15 @@
 package com.db.edu.etl;
-import com.db.edu.EtlApp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import static java.lang.Math.round;
-
 
 public class Controller {
+    public Transformer transformer;
 
+    public Controller(Transformer transformer) {
+        this.transformer = transformer;
+    }
     private static final Logger Logger = LoggerFactory.getLogger(Controller.class);
-
+    /* Comment out old transform versions
     public static String[] transform_old(RecordType recordType, String[] rawDataRecord) {
         String[] transformed = null;
 
@@ -17,14 +18,11 @@ public class Controller {
             return null;
         }
         else {
-
             for (String record : rawDataRecord) {
-
                 if ((record == null) || (record == "")) {
                     continue;
                 }
-
-                switch (recordType) {
+               switch (recordType) {
                     case EIS1_DATA_FILE: {
                         Logger.debug("Parsing EIS1_DATA_FILE");
                         return null;
@@ -56,43 +54,16 @@ public class Controller {
            Logger.info("rawDataRecord is null or has 0 lenght");
        }
        return rawDataRecord;
-   }
-
-    public static DTO transform(RecordType recordType, String[] rawDataRecord) {
-        int sum = 0;
-        int counter = 0;
-        double average = 0.;
-        int[] transformationResults = null;
-
-        if ((rawDataRecord == null) || (rawDataRecord.length == 0)) {
-            Logger.debug("Empty or null rawDataRecord");
-        } else {
-            transformationResults = new int [rawDataRecord.length];
-            for (counter = 0; counter < rawDataRecord.length; counter++) {
-                transformationResults[counter] = Integer.parseInt(rawDataRecord[counter]);
-                sum += transformationResults[counter];
-            }
-            average = (double) sum / rawDataRecord.length;
-        }
-
-        return new DTO(
-            transformationResults,
-                       average
-                      );
     }
-
-        public static String[] extract(RecordType recordType) {
+    */
+    public String[] extract(RecordType recordType) {
         Logger.debug("Start extract");
-
         Logger.debug("End extract");
-
         return null;
      }
 
-    public static void load (String[] transformedData) {
+    public void load (String[] transformedData) {
         Logger.debug("Start load with ars", transformedData);
-
         Logger.debug("End load");
     }
-
 }

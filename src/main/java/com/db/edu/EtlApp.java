@@ -12,8 +12,8 @@ public class EtlApp {
     public static void main(String... args) {
         logger.debug("Entering main method with args {}", args);
 
-        Controller.transform(RecordType.EIS1_DATA_FILE,
-                new String[] {"10","20"});
+      //  Controller.transform(RecordType.EIS1_DATA_FILE,
+      //          new String[] {"10","20"});
 
      //   Controller.load(
       //          Controller.transform(RecordType.EIS1_DATA_FILE,
