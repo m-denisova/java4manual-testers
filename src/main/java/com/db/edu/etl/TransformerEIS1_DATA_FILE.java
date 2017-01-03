@@ -20,8 +20,13 @@ public class TransformerEIS1_DATA_FILE implements Transformer {
         } else {
             transformationResults = new int [rawDataRecord.length];
             for (counter = 0; counter < rawDataRecord.length; counter++) {
-                transformationResults[counter] = Integer.parseInt(rawDataRecord[counter]);
-                sum += transformationResults[counter];
+                if (rawDataRecord[counter].length()== 0){
+                    Logger.debug("Empty raw data record");
+                    continue;
+                } else {
+                    transformationResults[counter] = Integer.parseInt(rawDataRecord[counter]);
+                    sum += transformationResults[counter];
+                }
             }
             average = (double) sum / rawDataRecord.length;
         }

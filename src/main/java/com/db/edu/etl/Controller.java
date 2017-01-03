@@ -4,6 +4,8 @@ import org.slf4j.LoggerFactory;
 
 public class Controller {
     public Transformer transformer;
+    public Loader loader;
+    public Extractor extractor;
 
     public Controller(Transformer transformer) {
         this.transformer = transformer;
@@ -55,7 +57,7 @@ public class Controller {
        }
        return rawDataRecord;
     }
-    */
+
     public String[] extract(RecordType recordType) {
         Logger.debug("Start extract");
         Logger.debug("End extract");
@@ -66,4 +68,5 @@ public class Controller {
         Logger.debug("Start load with ars", transformedData);
         Logger.debug("End load");
     }
+    */
 }
